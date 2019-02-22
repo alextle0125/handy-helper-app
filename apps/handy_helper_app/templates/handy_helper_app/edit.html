@@ -1,0 +1,63 @@
+<html>
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'handy_helper_app/css/styles.css' %}">	
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		  	<a class="navbar-brand" href="#">Handy Helper</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/users/logout">Logout</a>
+		      		</li>
+		      		<li class="nav-item">
+		      			<a class="nav-link" href="/">Back</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</nav>
+		<h1>Edit Your Job Posting</h1>
+
+		{% if messages %}
+			<div class="validation-messages-container">
+				{% for message in messages %}
+					<p class="validation-message">{{message}}</p class="">
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		<div class="form-group">
+			<form action="/jobs/{{job.id}}/update" method="POST">
+
+				{% csrf_token %}
+
+				<label for="title">
+					Title
+				</label>
+				
+				<input class="form-control" type="text" name="title" value="{{job.title}}" />
+				
+				<label for="description">
+					Description
+				</label>
+
+				<input class="form-control" type="textarea" name="description" value="{{job.description}}" />
+
+				<label for="location">
+					Location
+				</label>
+				
+				<input class="form-control" type="text" name="location" value="{{job.location}}" />
+				
+				<input class="btn btn-primary" type="submit" value="Update">
+
+			</form>
+		</div>
+	</body>
+</html>

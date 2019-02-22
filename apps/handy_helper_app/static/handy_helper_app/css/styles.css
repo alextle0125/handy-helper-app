@@ -1,0 +1,41 @@
+body {
+	text-align: center;
+}
+
+.nav-item {
+	margin: 0 30px;
+}
+
+.form-group {
+	display: inline-block;
+	width: 30%;
+	vertical-align: top;
+}
+
+.validation-message {
+	color: red;
+}
+
+.custom-table {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+}
+
+.action-items-td {
+	width: 250px;
+}
+
+.action-items {
+	padding: 0 5px;
+}
+
+.job-title {
+	margin: 15px;
+}
+
+.job-info-wrapper {
+	margin: 15px;
+	padding: 15px;
+	border: 1px solid #000;
+}

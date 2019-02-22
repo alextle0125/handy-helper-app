@@ -1,0 +1,44 @@
+<html>
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'handy_helper_app/css/styles.css' %}">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		  	<a class="navbar-brand" href="#">Handy Helper</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/users/logout">Logout</a>
+		      		</li>
+		      		<li class="nav-item">
+		      			<a class="nav-link" href="/users/jobs/{{job.id}}/add">Add to My Jobs</a>
+		      		</li>
+		      		<li class="nav-item">
+		      			<a class="nav-link" href="/jobs/new">Add a Job</a>
+		      		</li>
+		      		<li class="nav-item">
+		      			<a class="nav-link" href="/">Back</a>
+		      		</li>
+
+		    	</ul>
+		  	</div>
+		</nav>
+		<h1 class="job-title">{{job.title}}</h1>
+		<div class="job-info-wrapper">
+			<h4>{{job.description}}</h4>
+
+			<p>{{job.location}}</p>
+
+			<br>
+
+			<p class="bold">Posted By: {{user.first_name}} {{user.last_name}}</p>
+			<p>Posted on: {{job.created_at}}</p>
+		</div>
+	</body>
+</html>

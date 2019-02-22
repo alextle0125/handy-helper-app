@@ -1,0 +1,59 @@
+<html>
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'handy_helper_app/css/styles.css' %}">
+	</head>
+	<body>
+
+		<h1>Welcome to Handy Helper</h1>
+
+		<br>
+		
+		{% if messages %}
+			<div class="validation-messages-container">
+				{% for message in messages %}
+					<p class="validation-message">{{message}}</p class="">
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		<div class="form-group">
+			<h3>Register</h3>
+			<form action="/users/create" method="POST">
+				{% csrf_token %}
+
+				<label for="f_name">First Name</label>
+				<input class="form-control" type="text" name="f_name" />
+
+				<label for="l_name">Last Name</label>
+				<input class="form-control" type="text" name="l_name" />
+
+				<label for="email">Email</label>
+				<input class="form-control" type="text" name="email" />
+
+				<label for="password">Password</label>
+				<input class="form-control" type="password" name="password" />
+
+				<label for="confirm_password">Confirm Password</label>
+				<input class="form-control" type="password" name="confirm_password" />
+
+				<input class="btn btn-primary" type="submit" value="Register">
+			</form>
+		</div>
+		<div class="form-group">
+			<h3>Login</h3>
+			<form action="/users/session/create" method="POST">
+				{% csrf_token %}
+
+				<label for="email">Email</label>
+				<input class="form-control" type="text" name="email" />
+
+				<label for="password">Password</label>
+				<input class="form-control" type="password" name="password" />
+
+				<input class="btn btn-primary" type="submit" value="Log In">
+			</form>
+		</div>
+	</body>
+</html>
